@@ -3,1311 +3,494 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d10">
 
-  <title>Nexora | NFC, QR y soluciones digitales</title>
-  <meta name="description" content="Nexora ayuda a negocios locales con tarjetas NFC para reseñas de Google, cartas digitales con QR y soluciones digitales sencillas.">
+  <title>Nexora | Web, NFC, diseño y soluciones para negocios locales</title>
+  <meta name="description" content="Nexora ayuda a negocios locales del Baix Llobregat con páginas web, NFC y QR, reseñas de Google, cartas digitales, diseño gráfico, identidad visual e impresión.">
 
   <style>
     :root{
-      --dark:#0b0d10;
-      --dark2:#13161b;
-      --light:#f5f7fa;
-      --text:#15171a;
-      --muted:#69707a;
-      --green:#25D366;
-      --blue:#5c7cff;
-      --card:#ffffff;
-      --border:#e8ebef;
+      --dark:#0b0d10; --dark2:#13161b; --light:#f5f7fa; --text:#15171a;
+      --muted:#69707a; --green:#25D366; --blue:#5c7cff; --card:#fff; --border:#e8ebef;
     }
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--light);
-      color:var(--text);
-      line-height:1.6;
-      overflow-x:hidden;
-    }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    a{
-      text-decoration:none;
-    }
-
-    section{
-      padding:90px 8%;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:85px}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--text);line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{text-decoration:none}
+    section{padding:90px 8%}
+    .container{max-width:1300px;margin:auto}
 
     /* HEADER */
-    header.topbar{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:1000;
-      background:rgba(11,13,16,.88);
-      backdrop-filter:blur(15px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    nav{
-      max-width:1300px;
-      margin:auto;
-      padding:17px 5%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-
-    .logo{
-      color:white;
-      font-size:25px;
-      font-weight:900;
-      letter-spacing:1.5px;
-    }
-   .logo img{
-  width:46px !important;
-  height:46px !important;
-  max-width:46px !important;
-  max-height:46px !important;
-  object-fit:cover;
-  border-radius:8px;
-  display:block;
-  flex-shrink:0;
-}
-.logo span{
-  display:inline-block;
-}
-
-    .nav-links{
-      display:flex;
-      gap:28px;
-      align-items:center;
-    }
-
-    .nav-links a{
-      color:#d8dbe0;
-      font-size:15px;
-      transition:.25s;
-    }
-
-    .nav-links a:hover{
-      color:white;
-    }
-
-    .nav-whatsapp{
-      background:var(--green);
-      color:#07140c !important;
-      padding:10px 17px;
-      border-radius:999px;
-      font-weight:800;
-    }
-
-    .menu-btn{
-      display:none;
-      background:none;
-      border:0;
-      color:white;
-      font-size:30px;
-      cursor:pointer;
-    }
-
-    /* HERO */
-    .hero{
-      min-height:100vh;
-      display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:55px;
-      align-items:center;
-      padding:135px 8% 80px;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(92,124,255,.20), transparent 30%),
-        linear-gradient(135deg,#08090b,#11151b);
-      color:white;
-      overflow:hidden;
-    }
-
-    .hero-content{
-      max-width:700px;
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-      background:rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.12);
-      padding:8px 13px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-      color:#cfd4dc;
-      margin-bottom:24px;
-    }
-
-    .dot{
-      width:8px;
-      height:8px;
-      background:var(--green);
-      border-radius:50%;
-      box-shadow:0 0 14px var(--green);
-    }
-
-    .hero h1{
-      font-size:clamp(48px,7vw,82px);
-      line-height:1;
-      letter-spacing:-3px;
-      margin-bottom:22px;
-    }
-
-    .hero h1 span{
-      background:linear-gradient(90deg,#ffffff,#8ea2ff);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-
-    .hero p{
-      font-size:19px;
-      color:#b8bec8;
-      max-width:620px;
-      margin-bottom:32px;
-    }
-
-    .hero-buttons{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:14px 24px;
-      border-radius:999px;
-      font-weight:800;
-      transition:.25s;
-    }
-
-    .btn:hover{
-      transform:translateY(-3px);
-    }
-
-    .btn-primary{
-      background:var(--green);
-      color:#07140c;
-      box-shadow:0 12px 30px rgba(37,211,102,.18);
-    }
-
-    .btn-secondary{
-      border:1px solid rgba(255,255,255,.18);
-      color:white;
-      background:rgba(255,255,255,.05);
-    }
-
-    .hero-image{
-      position:relative;
-    }
-
-    .hero-image img{
-      width:100%;
-      border-radius:28px;
-      box-shadow:0 40px 90px rgba(0,0,0,.45);
-      animation:float 5s ease-in-out infinite;
-    }
-
-    @keyframes float{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-12px)}
-    }
-
-    .mini-card{
-      position:absolute;
-      left:-30px;
-      bottom:25px;
-      background:white;
-      color:#121212;
-      padding:15px 18px;
-      border-radius:16px;
-      box-shadow:0 15px 40px rgba(0,0,0,.24);
-      font-weight:800;
-      animation:float 4s ease-in-out infinite .5s;
-    }
-
-    /* TRUST STRIP */
-    .trust{
-      background:white;
-      border-bottom:1px solid var(--border);
-      padding:25px 8%;
-    }
-
-    .trust-grid{
-      max-width:1150px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-      text-align:center;
-      font-weight:800;
-    }
-
-    .trust-grid span{
-      color:var(--muted);
-      font-weight:500;
-      display:block;
-      font-size:14px;
-      margin-top:4px;
-    }
+    header.topbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,13,16,.9);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.08)}
+    nav{max-width:1300px;margin:auto;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{color:#fff;font-size:24px;font-weight:900;letter-spacing:1.5px;display:flex;align-items:center;gap:10px}
+    .logo img{width:46px;height:46px;object-fit:cover;border-radius:8px;flex-shrink:0}
+    .nav-links{display:flex;gap:22px;align-items:center}
+    .nav-links a{color:#d8dbe0;font-size:14px;transition:.25s}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:var(--green);color:#07140c!important;padding:10px 16px;border-radius:999px;font-weight:800}
+    .menu-btn{display:none;background:none;border:0;color:#fff;font-size:30px;cursor:pointer}
 
     /* COMMON */
-    .section-heading{
-      max-width:760px;
-      margin-bottom:46px;
-    }
+    .section-heading{max-width:790px;margin-bottom:46px}
+    .section-heading.center{margin-left:auto;margin-right:auto;text-align:center}
+    .section-heading small,.kicker{display:block;color:var(--blue);font-weight:900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px}
+    .section-heading h2{font-size:clamp(36px,5vw,55px);line-height:1.08;margin-bottom:14px;letter-spacing:-1.8px}
+    .section-heading p{color:var(--muted);font-size:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:800;transition:.25s}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{background:var(--green);color:#07140c;box-shadow:0 12px 30px rgba(37,211,102,.18)}
+    .btn-secondary{border:1px solid rgba(255,255,255,.18);color:#fff;background:rgba(255,255,255,.05)}
+    .btn-dark{background:#11151b;color:#fff}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
 
-    .section-heading small{
-      display:block;
-      color:var(--blue);
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:1.5px;
-      margin-bottom:9px;
-    }
+    /* HERO */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1.08fr .92fr;gap:55px;align-items:center;padding:135px 8% 80px;background:radial-gradient(circle at 80% 20%,rgba(92,124,255,.20),transparent 30%),linear-gradient(135deg,#08090b,#11151b);color:#fff;overflow:hidden}
+    .hero-content{max-width:720px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:8px 13px;border-radius:999px;font-size:13px;font-weight:700;color:#cfd4dc;margin-bottom:24px}
+    .dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 14px var(--green)}
+    .hero h1{font-size:clamp(46px,6.5vw,78px);line-height:1;letter-spacing:-3px;margin-bottom:22px}
+    .hero h1 span{background:linear-gradient(90deg,#fff,#8ea2ff);-webkit-background-clip:text;color:transparent}
+    .hero p{font-size:19px;color:#b8bec8;max-width:660px;margin-bottom:32px}
+    .hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+    .hero-image{position:relative}
+    .hero-image img{width:100%;border-radius:28px;box-shadow:0 40px 90px rgba(0,0,0,.45);animation:float 5s ease-in-out infinite}
+    .mini-card{position:absolute;left:-30px;bottom:25px;background:#fff;color:#121212;padding:15px 18px;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,.24);font-weight:800}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-    .section-heading h2{
-      font-size:clamp(36px,5vw,55px);
-      line-height:1.08;
-      margin-bottom:14px;
-      letter-spacing:-1.8px;
-    }
-
-    .section-heading p{
-      color:var(--muted);
-      font-size:18px;
-    }
+    /* TRUST */
+    .trust{background:#fff;border-bottom:1px solid var(--border);padding:25px 8%}
+    .trust-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;font-weight:800}
+    .trust-grid span{color:var(--muted);font-weight:500;display:block;font-size:14px;margin-top:4px}
 
     /* SERVICES */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-    }
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .service-card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,.05);transition:.3s}
+    .service-card:hover{transform:translateY(-7px);box-shadow:0 22px 50px rgba(0,0,0,.09)}
+    .service-card img{width:100%;height:245px;object-fit:cover}
+    .service-body{padding:26px}
+    .service-body h3{font-size:23px;margin-bottom:10px}
+    .service-body p{color:var(--muted)}
+    .service-icon{width:45px;height:45px;border-radius:12px;background:#edf0ff;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+    .service-tag{display:inline-block;margin-top:16px;padding:6px 10px;border-radius:999px;background:#f0f2ff;color:#4358b5;font-size:12px;font-weight:800}
 
-    .service-card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 12px 35px rgba(0,0,0,.05);
-      transition:.3s;
-    }
+    /* NFC FEATURE */
+    .dark-section{background:var(--dark);color:#fff}
+    .feature-grid,.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .feature-grid img{border-radius:26px;box-shadow:0 25px 60px rgba(0,0,0,.4)}
+    .feature-copy h2{font-size:clamp(38px,5vw,58px);line-height:1.05;letter-spacing:-2px;margin:10px 0 20px}
+    .feature-copy>p{color:#b5bbc4;font-size:18px;margin-bottom:26px}
+    .use-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+    .use-item{padding:14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);border-radius:14px;color:#d5d9df}
 
-    .service-card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 22px 50px rgba(0,0,0,.09);
-    }
+    /* PROCESS */
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .process-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:25px}
+    .process-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#11151b;color:#fff;font-weight:900;margin-bottom:18px}
+    .process-card h3{margin-bottom:8px}
+    .process-card p{color:var(--muted)}
 
-    .service-card img{
-      width:100%;
-      height:280px;
-      object-fit:cover;
-      transition:.45s;
-    }
+    /* ABOUT */
+    .about-box{background:#fff;border:1px solid var(--border);border-radius:26px;padding:36px;box-shadow:0 15px 40px rgba(0,0,0,.05)}
+    .about-box h3{font-size:28px;margin-bottom:12px}
+    .about-box p{color:var(--muted)}
+    .team-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .team-card{background:#11151b;color:#fff;border-radius:22px;padding:28px}
+    .team-card span{color:#9da6b4;font-size:14px}
+    .team-card h3{font-size:26px;margin:4px 0 8px}
+    .team-card p{color:#c4c9d0}
 
-    .service-card:hover img{
-      transform:scale(1.035);
-    }
+    /* SECTORS */
+    .types{display:flex;flex-wrap:wrap;gap:13px}
+    .type-pill{background:#fff;border:1px solid var(--border);padding:14px 20px;border-radius:999px;font-weight:800;transition:.25s}
+    .type-pill:hover{border-color:#b9c3ff;transform:translateY(-2px)}
 
-    .service-body{
-      padding:26px;
-    }
+    /* PRICES */
+    .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .price-card{background:#11151b;color:#fff;border-radius:24px;padding:30px;border:1px solid rgba(255,255,255,.08)}
+    .price-card h3{font-size:24px;margin-bottom:12px}
+    .price-card p{color:#c1c6ce;margin:7px 0}
+    .price-card strong{color:#fff}
+    .price-note{margin-top:22px;color:var(--muted);font-size:14px}
 
-    .service-body h3{
-      font-size:24px;
-      margin-bottom:10px;
-    }
-
-    .service-body p{
-      color:var(--muted);
-    }
-
-    .service-icon{
-      width:45px;
-      height:45px;
-      border-radius:12px;
-      background:#edf0ff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:22px;
-      margin-bottom:18px;
-    }
-
-    /* DEMO */
-    .dark-section{
-      background:var(--dark);
-      color:white;
-    }
-
-    .demo-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
-    }
-
-    .demo-grid img{
-      border-radius:26px;
-      box-shadow:0 25px 60px rgba(0,0,0,.4);
-    }
-
-    .demo-copy h2{
-      font-size:clamp(38px,5vw,58px);
-      line-height:1.05;
-      letter-spacing:-2px;
-      margin-bottom:20px;
-    }
-
-    .demo-copy > p{
-      color:#b5bbc4;
-      font-size:18px;
-      margin-bottom:28px;
-    }
-
-    .timeline{
-      display:grid;
-      gap:16px;
-      margin-bottom:30px;
-    }
-
-    .timeline-item{
-      display:flex;
-      gap:15px;
-      align-items:flex-start;
-      padding:17px;
-      border:1px solid rgba(255,255,255,.1);
-      background:rgba(255,255,255,.04);
-      border-radius:16px;
-      transition:.25s;
-    }
-
-    .timeline-item:hover{
-      background:rgba(255,255,255,.08);
-      transform:translateX(5px);
-    }
-
-    .step-num{
-      min-width:35px;
-      height:35px;
-      border-radius:50%;
-      background:var(--green);
-      color:#07140c;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-    }
-
-    .timeline-item p{
-      color:#b9bec6;
-      font-size:15px;
-    }
-
-    /* BUSINESS TYPES */
-    .types{
-      display:flex;
-      flex-wrap:wrap;
-      gap:13px;
-    }
-
-    .type-pill{
-      background:white;
-      border:1px solid var(--border);
-      padding:14px 20px;
-      border-radius:999px;
-      font-weight:800;
-      transition:.25s;
-    }
-
-    .type-pill:hover{
-      border-color:#b9c3ff;
-      transform:translateY(-2px);
-    }
+    /* PORTFOLIO PLACEHOLDER */
+    .demo-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .demo-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:26px}
+    .demo-card .demo-label{font-size:12px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+    .demo-card h3{margin:10px 0 8px}
+    .demo-card p{color:var(--muted)}
 
     /* FAQ */
-    .faq-wrap{
-      max-width:850px;
+    .faq-wrap{max-width:850px}
+    .faq{background:#fff;border:1px solid var(--border);border-radius:18px;margin-bottom:12px;overflow:hidden}
+    .faq-question{width:100%;border:0;background:#fff;padding:21px 22px;text-align:left;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:17px;font-weight:800}
+    .faq-question span{font-size:24px;transition:.3s}
+    .faq.active .faq-question span{transform:rotate(45deg)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .faq-answer p{padding:0 22px 21px;color:var(--muted)}
+
+    /* REVIEWS */
+    .reviews-section{background:#0b0d10;color:#fff}
+    .reviews-section .section-heading p{color:#aeb4bd}
+    #reviewForm{max-width:650px;display:grid;gap:14px;margin-bottom:25px}
+    #reviewForm input,#reviewForm select,#reviewForm textarea{width:100%;padding:14px 16px;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:#151515;color:#fff;font:inherit}
+    #reviewForm textarea{min-height:120px;resize:vertical}
+    #reviewForm button{padding:14px 20px;border:0;border-radius:12px;cursor:pointer;font-weight:800;font-size:16px;background:var(--green);color:#07140c}
+    .reviews-summary{max-width:650px;padding:22px;display:flex;gap:45px;align-items:center;background:#151515;border:1px solid rgba(255,255,255,.15);border-radius:18px}
+    .reviews-number,.reviews-rating{display:flex;flex-direction:column}
+    .reviews-number strong,#mediaEstrellas{font-size:34px;font-weight:800}
+    #listaResenas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:30px}
+    .review-card{padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#151515}
+    .review-card p{margin-top:12px;color:#d7dbe0}
+
+    /* CTA / FOOTER */
+    .cta{margin:80px 8%;border-radius:30px;background:radial-gradient(circle at 15% 20%,rgba(92,124,255,.35),transparent 30%),var(--dark2);color:#fff;padding:65px;text-align:center}
+    .cta h2{font-size:clamp(38px,5vw,58px);line-height:1.05;margin-bottom:15px}
+    .cta p{color:#b9bec7;font-size:18px;margin:0 auto 28px;max-width:700px}
+    footer{padding:40px 8%;text-align:center;background:#090a0c;color:#8d929a}
+    footer a{color:#c6cbd2}
+    .whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.28);transition:.25s}
+    .whatsapp-float img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+    .whatsapp-float:hover{transform:translateY(-4px) scale(1.06)}
+
+    @media(max-width:1000px){
+      .nav-links{gap:14px}
+      .nav-links a{font-size:13px}
+      .services-grid,.demo-cards{grid-template-columns:repeat(2,1fr)}
+      .process-grid{grid-template-columns:repeat(2,1fr)}
     }
-
-    .faq{
-      background:white;
-      border:1px solid var(--border);
-      border-radius:18px;
-      margin-bottom:12px;
-      overflow:hidden;
-    }
-
-    .faq-question{
-      width:100%;
-      border:0;
-      background:white;
-      padding:21px 22px;
-      text-align:left;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      cursor:pointer;
-      font-size:17px;
-      font-weight:800;
-    }
-
-    .faq-question span{
-      font-size:24px;
-      transition:.3s;
-    }
-
-    .faq.active .faq-question span{
-      transform:rotate(45deg);
-    }
-
-    .faq-answer{
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .35s ease;
-    }
-
-    .faq-answer p{
-      padding:0 22px 21px;
-      color:var(--muted);
-    }
-
-    /* CTA */
-    .cta{
-      margin:0 8% 80px;
-      border-radius:30px;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(92,124,255,.35), transparent 30%),
-        var(--dark2);
-      color:white;
-      padding:65px;
-      text-align:center;
-    }
-
-    .cta h2{
-      font-size:clamp(38px,5vw,58px);
-      line-height:1.05;
-      margin-bottom:15px;
-    }
-
-    .cta p{
-      color:#b9bec7;
-      font-size:18px;
-      margin-bottom:28px;
-    }
-
-    footer{
-      padding:35px 8%;
-      text-align:center;
-      background:#090a0c;
-      color:#8d929a;
-    }
-
-    /* WHATSAPP FLOAT */
-    .whatsapp-float{
-.whatsapp-float img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:50%;
-  display:block;
-}
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  z-index:999;
-  width:58px;
-  height:58px;
-  background:#25D366;
-  color:white;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:27px;
-  text-decoration:none;
-  box-shadow:0 12px 30px rgba(0,0,0,.28);
-  transition:.25s;
-}
-
-.whatsapp-float:hover{
-  transform:translateY(-4px) scale(1.08);
-  box-shadow:0 16px 35px rgba(37,211,102,.35);
-}
-    .whatsapp-float:hover{
-      transform:translateY(-4px) scale(1.02);
-    }
-
-    /* SCROLL ANIMATION */
-    .reveal{
-      opacity:0;
-      transform:translateY(35px);
-      transition:opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    /* MOBILE */
     @media(max-width:900px){
-      section{
-        padding:70px 6%;
-      }
-
-      .menu-btn{
-        display:block;
-      }
-
-      .nav-links{
-        display:none;
-        position:absolute;
-        top:70px;
-        left:4%;
-        right:4%;
-        background:#111419;
-        border:1px solid rgba(255,255,255,.1);
-        border-radius:18px;
-        flex-direction:column;
-        padding:22px;
-        align-items:stretch;
-        box-shadow:0 20px 40px rgba(0,0,0,.3);
-      }
-
-      .nav-links.open{
-        display:flex;
-      }
-
-      .hero{
-        grid-template-columns:1fr;
-        padding:125px 6% 70px;
-        min-height:auto;
-      }
-
-      .hero h1{
-        letter-spacing:-2px;
-      }
-
-      .hero-image{
-        margin-top:10px;
-      }
-
-      .mini-card{
-        left:12px;
-        bottom:12px;
-        font-size:13px;
-      }
-
-      .trust-grid{
-        grid-template-columns:1fr;
-        gap:22px;
-      }
-
-      .services-grid,
-      .demo-grid{
-        grid-template-columns:1fr;
-      }
-
-      .service-card img{
-        height:260px;
-      }
-
-      .cta{
-        margin:0 5% 65px;
-        padding:50px 25px;
-      }
+      section{padding:70px 6%}
+      .menu-btn{display:block}
+      .nav-links{display:none;position:absolute;top:74px;left:4%;right:4%;background:#111419;border:1px solid rgba(255,255,255,.1);border-radius:18px;flex-direction:column;padding:22px;align-items:stretch;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+      .nav-links.open{display:flex}
+      .hero{grid-template-columns:1fr;padding:125px 6% 70px;min-height:auto}
+      .mini-card{left:12px;bottom:12px;font-size:13px}
+      .trust-grid{grid-template-columns:repeat(2,1fr)}
+      .feature-grid,.about-grid{grid-template-columns:1fr}
+      .pricing-grid{grid-template-columns:1fr}
+      .cta{margin:65px 5%;padding:50px 25px}
     }
-
-    @media(max-width:520px){
-      .hero-buttons{
-        flex-direction:column;
-      }
-
-      .btn{
-        width:100%;
-      }
-
-      .service-card img{
-        height:230px;
-      }
-
-      .whatsapp-float{
-        right:14px;
-        bottom:14px;
-        padding:12px 15px;
-        font-size:14px;
-      }
+    @media(max-width:620px){
+      .hero h1{letter-spacing:-2px}
+      .hero-buttons{flex-direction:column}.btn{width:100%}
+      .services-grid,.demo-cards,.process-grid,.team-cards,.use-grid{grid-template-columns:1fr}
+      .trust-grid{grid-template-columns:1fr}
+      .reviews-summary{flex-direction:column;align-items:flex-start;gap:14px}
+      .whatsapp-float{right:14px;bottom:14px;width:54px;height:54px}
     }
-    /* PRECIOS NEXORA */
-.precios-nexora{
-  max-width:1000px;
-  margin:80px auto;
-  padding:40px 25px;
-  text-align:center;
-}
-
-.precios-nexora h2{
-  font-size:32px;
-  margin-bottom:10px;
-}
-
-.precio-card{
-  max-width:650px;
-  margin:25px auto;
-  padding:28px;
-  background:#151515;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:18px;
-  color:#fff;
-  text-align:left;
-}
-
-.precio-card h3{
-  font-size:23px;
-  margin-top:0;
-}
-
-.precio-card h4{
-  font-size:21px;
-  margin:15px 0;
-}
-
-.precio-card strong{
-  font-size:20px;
-}
-    /* RESEÑAS NEXORA */
-    .reviews-summary{
-  max-width:650px;
-  margin:30px auto;
-  padding:25px;
-  display:flex;
-  justify-content:center;
-  gap:50px;
-  align-items:center;
-  background:#151515;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:18px;
-}
-
-.reviews-number,
-.reviews-rating{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  color:#fff;
-}
-
-.reviews-number strong,
-#mediaEstrellas{
-  font-size:38px;
-  font-weight:800;
-}
-
-.reviews-summary span{
-  color:#fff;
-}
-.reviews-section{
-  max-width:900px;
-  margin:80px auto;
-  padding:40px 25px;
-  text-align:center;
-}
-
-.reviews-section h2{
-  font-size:32px;
-  margin-bottom:10px;
-}
-
-#reviewForm{
-  max-width:600px;
-  margin:30px auto;
-  display:grid;
-  gap:14px;
-}
-
-#reviewForm input,
-#reviewForm select,
-#reviewForm textarea{
-  width:100%;
-  padding:14px 16px;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:12px;
-  background:#151515;
-  color:#fff;
-  font:inherit;
-  box-sizing:border-box;
-}
-
-#reviewForm textarea{
-  min-height:120px;
-  resize:vertical;
-}
-
-#reviewForm button{
-  padding:14px 20px;
-  border:0;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:700;
-  font-size:16px;
-}
-
-#reviewMensaje{
-  margin:15px 0 30px;
-}
-
-#listaResenas{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
-  margin-top:35px;
-  text-align:left;
-}
-
-.review-card{
-  padding:22px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;
-  background:#151515;
-  color: #fff;
-}
-
-.review-card .stars{
-  margin-bottom:10px;
-  font-size:20px;
-}
-
-.review-card h3{
-  margin:0 0 4px;
-}
-
-.review-card small{
-  opacity:.7;
-}
-
-.review-card p{
-  margin:14px 0 0;
-  line-height:1.6;
-}
   </style>
 </head>
 
 <body>
-
 <header class="topbar">
   <nav>
-    <a href="#" class="logo">
-  <img src="ChatGPT%20Image%2015%20sept%202026%2C%2002_11_06.png" alt="Logo Nexora">
-  <span>NEXORA</span>
-</a>
-
+    <a href="#inicio" class="logo">
+      <img src="ChatGPT%20Image%2015%20sept%202026%2C%2002_11_06.png" alt="Logo Nexora">
+      <span>NEXORA</span>
+    </a>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
-
     <div class="nav-links" id="navLinks">
       <a href="#servicios">Servicios</a>
-      <a href="#como-funciona">Cómo funciona</a>
-      <a href="#negocios">Para quién</a>
+      <a href="#nfc">NFC</a>
+      <a href="#como-funciona">Cómo trabajamos</a>
+      <a href="#equipo">Nexora</a>
+      <a href="#precios">Precios NFC</a>
       <a href="#faq">Preguntas</a>
-      <a href="#precios">Precios</a>
-<a href="#resenas">Reseñas</a>
-      <a class="whatsapp-float"
-   href="https://wa.me/34668590737?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Nexora"
-   target="_blank"
-   rel="noopener"
-   aria-label="Contactar por WhatsApp">
-  <img src="ChatGPT%20Image%2015%20sept%202026%2C%2001_48_38.png"
-       alt="WhatsApp">
-</a>
+      <a class="nav-cta" href="https://wa.me/34668590737?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Nexora" target="_blank" rel="noopener">Pedir información</a>
     </div>
   </nav>
 </header>
 
 <main>
-
-  <section class="hero">
-
+  <section class="hero" id="inicio">
     <div class="hero-content reveal">
-      <div class="eyebrow">
-        <span class="dot"></span>
-        Soluciones digitales para negocios locales
-      </div>
-
-      <h1>
-        Digitaliza la experiencia de <span>tus clientes.</span>
-      </h1>
-
-      <p>
-        Reseñas Google con NFC, cartas digitales con QR y soluciones sencillas
-        para hacer más fácil la interacción entre tus clientes y tu negocio.
-      </p>
-
+      <div class="eyebrow"><span class="dot"></span> Soluciones para negocios locales · Baix Llobregat</div>
+      <h1>Web, diseño y tecnología para <span>hacer crecer tu presencia.</span></h1>
+      <p>Nexora combina páginas web, NFC y QR, reseñas de Google, cartas digitales, diseño gráfico e impresión para ofrecer soluciones prácticas a negocios locales.</p>
       <div class="hero-buttons">
-        <a class="btn btn-primary"
-           href="https://wa.me/34668590737?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Nexora"
-           target="_blank">
-          Hablar por WhatsApp
-        </a>
-
-        <a class="btn btn-secondary" href="#servicios">
-          Ver soluciones ↓
-        </a>
+        <a class="btn btn-primary" href="https://wa.me/34668590737?text=Hola%2C%20tengo%20un%20negocio%20y%20quiero%20informaci%C3%B3n%20sobre%20Nexora" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        <a class="btn btn-secondary" href="#servicios">Ver servicios ↓</a>
       </div>
     </div>
-
     <div class="hero-image reveal">
-      <img src="nfc-1.png" alt="Tarjeta NFC para reseñas de Google">
-      <div class="mini-card">⚡ Un toque. Menos pasos.</div>
+      <img src="nfc-1.png" alt="Solución NFC de Nexora">
+      <div class="mini-card">⚡ Soluciones preparadas para tu negocio</div>
     </div>
-
   </section>
 
   <div class="trust">
     <div class="trust-grid">
-      <div>
-        Sin aplicaciones
-        <span>El cliente utiliza directamente su móvil</span>
-      </div>
-
-      <div>
-        Configurado para ti
-        <span>Lo dejamos preparado para tu negocio</span>
-      </div>
-
-      <div>
-        Fácil de utilizar
-        <span>Una solución sencilla para el día a día</span>
-      </div>
+      <div>Servicio local<span>Atención cercana y directa</span></div>
+      <div>Personalizado<span>Adaptado a cada negocio</span></div>
+      <div>Web + diseño + NFC<span>Todo bajo una misma marca</span></div>
+      <div>Entrega preparada<span>Probamos antes de entregar</span></div>
     </div>
   </div>
 
-
   <section id="servicios">
-
     <div class="section-heading reveal">
-      <small>Servicios</small>
-      <h2>Menos pasos para tus clientes.</h2>
-      <p>
-        Soluciones sencillas, visuales y pensadas para negocios que quieren
-        mejorar su presencia digital sin complicaciones.
-      </p>
+      <small>Servicios Nexora</small>
+      <h2>Lo que necesita tu negocio, sin complicarlo.</h2>
+      <p>Desde presencia online hasta soluciones físicas dentro del local. Diseñamos, configuramos y preparamos cada proyecto según lo que realmente necesites.</p>
     </div>
 
     <div class="services-grid">
+      <article class="service-card reveal">
+        <div class="service-body"><div class="service-icon">🌐</div><h3>Páginas web</h3><p>Webs profesionales, adaptadas a móvil y enfocadas a mostrar claramente tu negocio, servicios y formas de contacto.</p><span class="service-tag">Desde 300 €</span></div>
+      </article>
 
       <article class="service-card reveal">
         <img src="nfc-2.png" alt="Tarjeta NFC para reseñas de Google">
-
-        <div class="service-body">
-          <h3>Reseñas Google con NFC</h3>
-          <p>
-            El cliente acerca su teléfono a la tarjeta y accede directamente
-            a la pantalla para dejar una reseña en Google.
-          </p>
-        </div>
+        <div class="service-body"><h3>Reseñas Google con NFC</h3><p>El cliente acerca el móvil y accede directamente al enlace preparado para valorar tu negocio.</p><span class="service-tag">Desde 25 €</span></div>
       </article>
 
       <article class="service-card reveal">
-        <img src="nfc-3.png" alt="Tarjetas NFC personalizadas para negocios">
-
-        <div class="service-body">
-          <h3>Configurado para tu negocio</h3>
-          <p>
-            Cada tarjeta se prepara con la ficha de Google correspondiente
-            y se entrega lista para utilizar.
-          </p>
-        </div>
+        <img src="nfc-3.png" alt="Puntos NFC personalizados">
+        <div class="service-body"><h3>NFC y QR personalizados</h3><p>Puntos para cartas, Wi‑Fi, Instagram, WhatsApp, promociones, web, reseñas y otras acciones útiles dentro del negocio.</p><span class="service-tag">Diseño + configuración</span></div>
       </article>
 
       <article class="service-card reveal">
-        <div class="service-body">
-          <div class="service-icon">▦</div>
-          <h3>Cartas digitales con QR</h3>
-          <p>
-            Creamos una carta digital adaptada a móvil y un código QR para que
-            tus clientes puedan consultarla desde la mesa.
-          </p>
-        </div>
+        <div class="service-body"><div class="service-icon">▦</div><h3>Cartas y menús digitales</h3><p>Diseño de carta o menú y opciones digitales accesibles mediante QR o NFC desde la mesa.</p><span class="service-tag">Para hostelería</span></div>
       </article>
 
+      <article class="service-card reveal">
+        <div class="service-body"><div class="service-icon">✦</div><h3>Logo e identidad visual</h3><p>Logos, colores, tipografías y una línea visual coherente para que tu negocio tenga una imagen reconocible.</p><span class="service-tag">Diseño gráfico</span></div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-body"><div class="service-icon">▤</div><h3>Flyers, carteles e impresión</h3><p>Diseñamos material promocional y podemos gestionar su preparación e impresión para que lo recibas listo para utilizar.</p><span class="service-tag">Diseño + producción</span></div>
+      </article>
     </div>
   </section>
 
-
-  <section class="dark-section" id="como-funciona">
-
-    <div class="demo-grid">
-
-      <div class="reveal">
-        <img src="nfc-3.png" alt="Funcionamiento de tarjeta NFC Google">
-      </div>
-
-      <div class="demo-copy reveal">
-        <small style="color:#7f97ff;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;">
-          Cómo funciona
-        </small>
-
-        <h2>Una reseña a un toque de distancia.</h2>
-
-        <p>
-          Reduce los pasos que tiene que seguir el cliente cuando quiere
-          valorar tu negocio.
-        </p>
-
-        <div class="timeline">
-
-          <div class="timeline-item">
-            <div class="step-num">1</div>
-            <div>
-              <strong>Acerca el móvil</strong>
-              <p>El cliente acerca su teléfono a la tarjeta NFC.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="step-num">2</div>
-            <div>
-              <strong>Se abre Google</strong>
-              <p>Accede directamente a la página de reseña de tu negocio.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="step-num">3</div>
-            <div>
-              <strong>Deja su valoración</strong>
-              <p>Puede seleccionar estrellas y escribir su experiencia.</p>
-            </div>
-          </div>
-
+  <section class="dark-section" id="nfc">
+    <div class="feature-grid">
+      <div class="reveal"><img src="nfc-3.png" alt="NFC personalizado para negocios"></div>
+      <div class="feature-copy reveal">
+        <span class="kicker">NFC personalizado</span>
+        <h2>Acerca el móvil. Sin apps. Sin complicaciones.</h2>
+        <p>Preparamos puntos NFC y QR para que tus clientes lleguen a la acción que te interesa con el mínimo número de pasos.</p>
+        <div class="use-grid">
+          <div class="use-item">⭐ Reseñas de Google</div><div class="use-item">📶 Acceso Wi‑Fi</div>
+          <div class="use-item">🍽️ Carta digital</div><div class="use-item">💬 WhatsApp</div>
+          <div class="use-item">📱 Instagram</div><div class="use-item">🌐 Página web</div>
+          <div class="use-item">🏷️ Promociones</div><div class="use-item">📅 Solicitud de reserva</div>
         </div>
-
-        <a class="btn btn-primary"
-           href="https://wa.me/34668590737?text=Hola%2C%20me%20interesan%20las%20tarjetas%20NFC"
-           target="_blank">
-          Quiero información
-        </a>
+        <a class="btn btn-primary" href="https://wa.me/34668590737?text=Hola%2C%20me%20interesan%20los%20NFC%20personalizados%20de%20Nexora" target="_blank" rel="noopener">Consultar NFC</a>
       </div>
-
     </div>
   </section>
 
+  <section id="como-funciona">
+    <div class="section-heading center reveal">
+      <small>Cómo trabajamos</small>
+      <h2>De la idea a una solución lista para usar.</h2>
+      <p>Un proceso sencillo para que sepas qué ocurre en cada momento.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal"><div class="process-num">1</div><h3>Nos cuentas qué necesitas</h3><p>Conocemos tu negocio, el objetivo y qué solución puede encajar.</p></div>
+      <div class="process-card reveal"><div class="process-num">2</div><h3>Preparamos presupuesto</h3><p>Definimos el trabajo antes de empezar para que tengas claro qué incluye.</p></div>
+      <div class="process-card reveal"><div class="process-num">3</div><h3>Creamos y revisamos</h3><p>Desarrollamos, diseñamos, configuramos y comprobamos el proyecto.</p></div>
+      <div class="process-card reveal"><div class="process-num">4</div><h3>Entregamos o instalamos</h3><p>Te lo dejamos preparado para utilizar y comprobamos su funcionamiento cuando corresponda.</p></div>
+    </div>
+  </section>
+
+  <section id="equipo" style="background:#eef1f5">
+    <div class="about-grid">
+      <div class="about-box reveal">
+        <span class="kicker">Quiénes somos</span>
+        <h3>Nexora es un proyecto local.</h3>
+        <p>Somos Asier y Bruno. Combinamos desarrollo web, tecnología NFC y diseño gráfico para ayudar a negocios locales a mejorar tanto su presencia digital como la experiencia dentro de su establecimiento.</p>
+        <p style="margin-top:14px">Trabajamos los proyectos como equipo y buscamos soluciones útiles, visuales y adaptadas a cada negocio.</p>
+      </div>
+      <div class="team-cards reveal">
+        <div class="team-card"><span>Web · NFC · Tecnología</span><h3>Asier</h3><p>Desarrollo web, configuración NFC, parte técnica y gestión de proyectos.</p></div>
+        <div class="team-card"><span>Diseño · Marca · Creatividad</span><h3>Bruno</h3><p>Diseño gráfico, logos, identidad visual, flyers, cartelería y apoyo visual en los proyectos.</p></div>
+      </div>
+    </div>
+  </section>
 
   <section id="negocios">
-
     <div class="section-heading reveal">
       <small>Para negocios locales</small>
-      <h2>Una solución adaptable a muchos sectores.</h2>
-      <p>
-        Especialmente útil en negocios donde existe contacto directo con
-        clientes y una buena reputación online marca la diferencia.
-      </p>
+      <h2>Soluciones que se adaptan a muchos sectores.</h2>
+      <p>Especialmente útiles en negocios con contacto directo con clientes y donde la presencia digital, la imagen y la reputación importan.</p>
     </div>
-
     <div class="types reveal">
-      <div class="type-pill">🍽️ Restaurantes</div>
-      <div class="type-pill">☕ Cafeterías</div>
-      <div class="type-pill">✂️ Barberías</div>
-      <div class="type-pill">💇 Peluquerías</div>
-      <div class="type-pill">✨ Estética</div>
-      <div class="type-pill">🦷 Clínicas</div>
-      <div class="type-pill">🔧 Talleres</div>
-      <div class="type-pill">🏪 Comercios</div>
+      <div class="type-pill">🍽️ Restaurantes</div><div class="type-pill">☕ Cafeterías</div>
+      <div class="type-pill">✂️ Barberías</div><div class="type-pill">💇 Peluquerías</div>
+      <div class="type-pill">✨ Estética</div><div class="type-pill">🦷 Clínicas</div>
+      <div class="type-pill">🔧 Talleres</div><div class="type-pill">🏪 Comercios</div>
     </div>
   </section>
 
+  <section style="background:#eef1f5" id="muestras">
+    <div class="section-heading reveal">
+      <small>Ejemplos y demostraciones</small>
+      <h2>Así puede aplicarse Nexora a un negocio.</h2>
+      <p>Mientras incorporamos proyectos reales al portfolio, estas son algunas de las soluciones que podemos preparar. No se presentan como trabajos de clientes.</p>
+    </div>
+    <div class="demo-cards">
+      <div class="demo-card reveal"><span class="demo-label">Demo</span><h3>Web para negocio local</h3><p>Página adaptable a móvil con servicios, ubicación, contacto y WhatsApp.</p></div>
+      <div class="demo-card reveal"><span class="demo-label">Demo</span><h3>Punto NFC para mesa</h3><p>NFC personalizado para carta, Wi‑Fi, reseñas, redes o promociones.</p></div>
+      <div class="demo-card reveal"><span class="demo-label">Demo</span><h3>Identidad y promoción</h3><p>Logo, línea visual, flyer o cartel preparado para comunicación e impresión.</p></div>
+    </div>
+  </section>
+
+  <section id="precios">
+    <div class="section-heading reveal">
+      <small>Precios NFC</small>
+      <h2>Soluciones NFC listas para tu negocio.</h2>
+      <p>Precios claros para nuestras soluciones NFC más habituales. Para web, diseño, impresión o proyectos combinados preparamos presupuesto según el trabajo.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>⭐ Tarjetas NFC para reseñas</h3>
+        <p>1 tarjeta — <strong>25 €</strong></p><p>2 tarjetas — <strong>40 €</strong></p>
+        <p>3 tarjetas — <strong>55 €</strong></p><p>5 tarjetas — <strong>80 €</strong></p>
+        <p>10 tarjetas — <strong>130 €</strong></p>
+      </div>
+      <div class="price-card reveal">
+        <h3>📲 Puntos NFC personalizados</h3>
+        <p>1 punto — <strong>25 €</strong></p><p>2 puntos — <strong>40 €</strong></p>
+        <p>3 puntos — <strong>55 €</strong></p><p>5 puntos — <strong>80 €</strong></p>
+        <p>10 puntos — <strong>130 €</strong></p>
+        <p style="margin-top:14px">Incluye diseño personalizado, programación, preparación y montaje. La instalación se concreta según el proyecto.</p>
+      </div>
+    </div>
+    <p class="price-note">¿Necesitas más unidades o combinar varios servicios? Escríbenos y preparamos una propuesta para tu negocio.</p>
+  </section>
 
   <section id="faq">
-
-    <div class="section-heading reveal">
-      <small>Preguntas frecuentes</small>
-      <h2>Todo claro antes de empezar.</h2>
-    </div>
-
+    <div class="section-heading reveal"><small>Preguntas frecuentes</small><h2>Todo claro antes de empezar.</h2></div>
     <div class="faq-wrap reveal">
-
-      <div class="faq">
-        <button class="faq-question">
-          ¿El cliente necesita instalar una app?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            No. En teléfonos compatibles, basta con acercar el móvil a la
-            tarjeta NFC para abrir el enlace.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-question">
-          ¿Las tarjetas vienen configuradas?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Sí. Las preparamos para la ficha de Google de tu negocio y
-            comprobamos su funcionamiento.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-question">
-          ¿El QR necesita una aplicación?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            No. El cliente puede escanearlo directamente con la cámara de su
-            teléfono en la mayoría de móviles actuales.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-question">
-          ¿Trabajáis solo con restaurantes?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            No. Las soluciones pueden utilizarse en restaurantes, barberías,
-            peluquerías, clínicas, centros de estética, talleres y otros
-            negocios locales.
-          </p>
-        </div>
-      </div>
-
+      <div class="faq"><button class="faq-question">¿El cliente necesita instalar una app?<span>+</span></button><div class="faq-answer"><p>No. En teléfonos compatibles, basta con acercar el móvil al NFC. El QR puede escanearse con la cámara en la mayoría de móviles actuales.</p></div></div>
+      <div class="faq"><button class="faq-question">¿Los NFC vienen configurados?<span>+</span></button><div class="faq-answer"><p>Sí. Los programamos y comprobamos antes de entregarlos. El destino dependerá de lo que necesite el negocio: reseñas, carta, Wi‑Fi, web, WhatsApp, redes u otras opciones.</p></div></div>
+      <div class="faq"><button class="faq-question">¿También hacéis páginas web?<span>+</span></button><div class="faq-answer"><p>Sí. Creamos páginas web profesionales y adaptadas a móvil para negocios locales, con opciones como WhatsApp, mapas, formularios, servicios, galerías y otras funciones según el proyecto.</p></div></div>
+      <div class="faq"><button class="faq-question">¿Trabajáis solo con restaurantes?<span>+</span></button><div class="faq-answer"><p>No. Trabajamos soluciones para hostelería, barberías, peluquerías, estética, clínicas, talleres, comercios y otros negocios locales.</p></div></div>
+      <div class="faq"><button class="faq-question">¿También podéis diseñar el logo o material impreso?<span>+</span></button><div class="faq-answer"><p>Sí. Nexora también ofrece diseño de logos e identidad visual, cartas y menús, flyers, carteles y gestión de impresión.</p></div></div>
     </div>
   </section>
 
+  <section class="reviews-section" id="resenas">
+    <div class="section-heading reveal">
+      <small>Opiniones</small>
+      <h2>Experiencias con Nexora.</h2>
+      <p>Si ya has trabajado con nosotros, puedes dejar aquí tu valoración.</p>
+    </div>
+    <form id="reviewForm">
+      <input type="text" id="reviewNombre" placeholder="Tu nombre" required>
+      <input type="text" id="reviewNegocio" placeholder="Nombre de tu negocio">
+      <select id="reviewEstrellas" required><option value="5">⭐⭐⭐⭐⭐</option><option value="4">⭐⭐⭐⭐</option><option value="3">⭐⭐⭐</option><option value="2">⭐⭐</option><option value="1">⭐</option></select>
+      <textarea id="reviewComentario" placeholder="Escribe tu opinión..." required></textarea>
+      <button type="submit">Enviar reseña</button>
+    </form>
+    <p id="reviewMensaje"></p>
+    <div class="reviews-summary">
+      <div class="reviews-number"><strong id="totalResenas">0</strong><span>valoraciones recibidas</span></div>
+      <div class="reviews-rating"><span id="mediaEstrellas">0,0</span><span>⭐ de media</span></div>
+    </div>
+    <div id="listaResenas"></div>
+  </section>
 
   <section class="cta reveal">
-    <h2>¿Quieres mejorar la experiencia de tus clientes?</h2>
-
-    <p>
-      Cuéntanos qué tipo de negocio tienes y qué necesitas.
-      Servicio en Sant Boi de Llobregat y alrededores.
-    </p>
-
-    <a class="btn btn-primary"
-       href="https://wa.me/34668590737?text=Hola%2C%20tengo%20un%20negocio%20y%20quiero%20informaci%C3%B3n%20sobre%20Nexora"
-       target="_blank">
-      Contactar por WhatsApp
-    </a>
+    <h2>Cuéntanos qué necesita tu negocio.</h2>
+    <p>Trabajamos con negocios locales de Sant Boi de Llobregat, Viladecans, Gavà, Cornellà y alrededores. Explícanos qué quieres mejorar y te contamos las opciones sin compromiso.</p>
+    <div class="hero-buttons" style="justify-content:center">
+      <a class="btn btn-primary" href="https://wa.me/34668590737?text=Hola%2C%20tengo%20un%20negocio%20y%20quiero%20informaci%C3%B3n%20sobre%20Nexora" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+      <a class="btn btn-secondary" href="mailto:nexoranegocioslocales@gmail.com">Enviar un correo</a>
+    </div>
   </section>
-  <section id="precios" class="precios-nexora">
-  <h2>Soluciones NFC para tu negocio 📲</h2>
-  <p>Elige la opción que mejor se adapte a tu negocio.</p>
-
-  <div class="precio-card">
-    <h3>⭐ Tarjetas NFC para reseñas</h3>
-    <p>1 tarjeta — <strong>25 €</strong></p>
-    <p>2 tarjetas — <strong>40 €</strong></p>
-    <p>3 tarjetas — <strong>55 €</strong></p>
-    <p>5 tarjetas — <strong>80 €</strong></p>
-    <p>10 tarjetas — <strong>130 €</strong></p>
-  </div>
-
-  <div class="precio-card">
-    <h3>📲 Pack NFC para mesas</h3>
-    <h4>10 puntos NFC personalizados — 130 €</h4>
-    <p>✓ Diseño personalizado desde cero</p>
-    <p>✓ Impresión en vinilo resistente</p>
-    <p>✓ 10 chips NFC programados</p>
-    <p>✓ Preparación y montaje</p>
-    <p>✓ Colocación en las mesas</p>
-    <p>✓ Comprobación de funcionamiento</p>
-  </div>
-</section>
-<section id="resenas" class="reviews-section">
-  <h2>Opiniones de nuestros clientes ⭐</h2>
-  <p>¿Has trabajado con Nexora? Cuéntanos tu experiencia.</p>
-
-  <form id="reviewForm">
-    <input type="text" id="reviewNombre" placeholder="Tu nombre" required>
-    <input type="text" id="reviewNegocio" placeholder="Nombre de tu negocio">
-
-    <select id="reviewEstrellas" required>
-      <option value="5">⭐⭐⭐⭐⭐</option>
-      <option value="4">⭐⭐⭐⭐</option>
-      <option value="3">⭐⭐⭐</option>
-      <option value="2">⭐⭐</option>
-      <option value="1">⭐</option>
-    </select>
-
-    <textarea id="reviewComentario"
-      placeholder="Escribe tu opinión..."
-      required></textarea>
-
-    <button type="submit">Enviar reseña</button>
-  </form>
-
-  <p id="reviewMensaje"></p>
-<div class="reviews-summary">
-  <div class="reviews-number">
-    <strong id="totalResenas">0</strong>
-    <span>valoraciones recibidas</span>
-  </div>
-
-  <div class="reviews-rating">
-    <span id="mediaEstrellas">0,0</span>
-    <span>⭐ de media</span>
-  </div>
-</div>
-  <div id="listaResenas"></div>
-</section>
 </main>
 
-
 <footer>
-  © 2026 Nexora · NFC · Cartas QR · Soluciones digitales para negocios
+  <p>© 2026 Nexora · Web · NFC/QR · Diseño · Impresión · Soluciones para negocios locales</p>
+  <p style="margin-top:8px"><a href="mailto:nexoranegocioslocales@gmail.com">nexoranegocioslocales@gmail.com</a></p>
 </footer>
 
-
-
+<a class="whatsapp-float" href="https://wa.me/34668590737?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Nexora" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <img src="ChatGPT%20Image%2015%20sept%202026%2C%2001_48_38.png" alt="WhatsApp">
+</a>
 
 <script>
-  // MENÚ MÓVIL
-  const menuBtn = document.getElementById("menuBtn");
-  const navLinks = document.getElementById("navLinks");
+  const menuBtn=document.getElementById("menuBtn");
+  const navLinks=document.getElementById("navLinks");
+  menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
+  document.querySelectorAll(".nav-links a").forEach(link=>link.addEventListener("click",()=>navLinks.classList.remove("open")));
 
-  menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
-
-  document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-    });
-  });
-
-  // FAQ DESPLEGABLE
-  document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-      const faq = button.parentElement;
-      const answer = faq.querySelector(".faq-answer");
-
+  document.querySelectorAll(".faq-question").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const faq=button.parentElement;
+      const answer=faq.querySelector(".faq-answer");
       faq.classList.toggle("active");
-
-      if (faq.classList.contains("active")) {
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      } else {
-        answer.style.maxHeight = null;
-      }
+      answer.style.maxHeight=faq.classList.contains("active")?answer.scrollHeight+"px":null;
     });
   });
 
-  // ANIMACIONES AL HACER SCROLL
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}
     });
-  }, {
-    threshold: 0.12
-  });
-
-  document.querySelectorAll(".reveal").forEach(el => {
-    observer.observe(el);
-  });
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-const SUPABASE_URL = 'https://bnksofqkanayytnqtzyj.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_w5QuVp-6qwXNWmpbRTR7kQ_VWSkTOev';
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    document.getElementById('reviewForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
+<script>
+  const SUPABASE_URL='https://bnksofqkanayytnqtzyj.supabase.co';
+  const SUPABASE_KEY='sb_publishable_w5QuVp-6qwXNWmpbRTR7kQ_VWSkTOev';
+  const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-  const nombre = document.getElementById('reviewNombre').value.trim();
-  const negocio = document.getElementById('reviewNegocio').value.trim();
-  const estrellas = Number(document.getElementById('reviewEstrellas').value);
-  const comentario = document.getElementById('reviewComentario').value.trim();
-  const mensaje = document.getElementById('reviewMensaje');
+  document.getElementById('reviewForm').addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const nombre=document.getElementById('reviewNombre').value.trim();
+    const negocio=document.getElementById('reviewNegocio').value.trim();
+    const estrellas=Number(document.getElementById('reviewEstrellas').value);
+    const comentario=document.getElementById('reviewComentario').value.trim();
+    const mensaje=document.getElementById('reviewMensaje');
 
-  const { error } = await supabaseClient
-    .from('Reseñas')
-    .insert({
-      nombre,
-      negocio,
-      estrellas,
-      comentario,
-      aprobada: true
-    });
-
-  if (error) {
-    mensaje.textContent = 'Ha ocurrido un error. Inténtalo de nuevo.';
-    console.error(error);
-    return;
-  }
-
-  mensaje.textContent = '¡Gracias! ⭐ Tu reseña está pendiente de aprobación.';
-  document.getElementById('reviewForm').reset();
-});
-    async function cargarResenas() {
-  const { data, error } = await supabaseClient
-    .from('Reseñas')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  const lista = document.getElementById('listaResenas');
-  lista.innerHTML = '';
-const total = data.length;
-
-const media = total > 0
-  ? data.reduce((suma, resena) => suma + Number(resena.estrellas), 0) / total
-  : 0;
-
-document.getElementById('totalResenas').textContent = total;
-document.getElementById('mediaEstrellas').textContent = media.toFixed(1).replace('.', ',');
-  data.forEach(resena => {
-    const card = document.createElement('div');
-    card.className = 'review-card';
-
-    card.innerHTML = `
-      <div class="stars">${'⭐'.repeat(resena.estrellas)}</div>
-      <h3>${resena.nombre}</h3>
-      <small>${resena.negocio || ''}</small>
-      <p>${resena.comentario}</p>
-    `;
-
-    lista.appendChild(card);
+    const {error}=await supabaseClient.from('Reseñas').insert({nombre,negocio,estrellas,comentario,aprobada:true});
+    if(error){mensaje.textContent='Ha ocurrido un error. Inténtalo de nuevo.';console.error(error);return;}
+    mensaje.textContent='¡Gracias! ⭐ Tu reseña se ha enviado correctamente.';
+    document.getElementById('reviewForm').reset();
+    cargarResenas();
   });
-}
 
-cargarResenas();
+  async function cargarResenas(){
+    const {data,error}=await supabaseClient.from('Reseñas').select('*').order('created_at',{ascending:false});
+    if(error){console.error(error);return;}
+    const lista=document.getElementById('listaResenas');
+    lista.innerHTML='';
+    const total=data.length;
+    const media=total>0?data.reduce((suma,resena)=>suma+Number(resena.estrellas),0)/total:0;
+    document.getElementById('totalResenas').textContent=total;
+    document.getElementById('mediaEstrellas').textContent=media.toFixed(1).replace('.',',');
+
+    data.forEach(resena=>{
+      const card=document.createElement('div');
+      card.className='review-card';
+
+      const stars=document.createElement('div');
+      stars.className='stars';
+      stars.textContent='⭐'.repeat(Math.max(0,Math.min(5,Number(resena.estrellas)||0)));
+
+      const h3=document.createElement('h3');
+      h3.textContent=resena.nombre||'Cliente';
+
+      const small=document.createElement('small');
+      small.textContent=resena.negocio||'';
+
+      const p=document.createElement('p');
+      p.textContent=resena.comentario||'';
+
+      card.append(stars,h3,small,p);
+      lista.appendChild(card);
+    });
+  }
+  cargarResenas();
 </script>
 </body>
 </html>
